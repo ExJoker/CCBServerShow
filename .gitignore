@@ -1,0 +1,10 @@
+
+*.lock
+*.apk
+*.unitypackage
+*.psd
+Assets/StreamingAssets/
+.git
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uilds/
