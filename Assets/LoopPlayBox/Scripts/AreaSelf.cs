@@ -7,9 +7,7 @@ public class AreaSelf : Singleton<AreaSelf>
 {
     Image thisImage, lightImage;
     Vector2 panelHidePos2,panelShowPos2;
-
     public int id;
-
     DelegateColor delegatecolor = new DelegateColor();
     DelegateScale delegatesize = new DelegateScale();
     DelegatePosition delegatepos = new DelegatePosition();
@@ -57,6 +55,7 @@ public class AreaSelf : Singleton<AreaSelf>
 
     public void DisplayThis(RectTransform rect)
     {
+        if (thisImage == null) return;
         thisImage.enabled = true;
         thisImage.color = new Color(1, 1, 1, 0);
 

@@ -370,6 +370,7 @@
     <None Include="Assets\Materials\Test.shader" />
     <None Include="Assets\Materials\WaveTransparent.shader" />
     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+    <None Include="Assets\StreamingAssets\IP.xml" />
     <None Include="Assets\Wispy Sky\ReadMe.txt" />
     <None Include="Assets\_Shader\ZaoBo.shader" />
     <None Include="Assets\_Shader\ZaoDIan.shader" />
