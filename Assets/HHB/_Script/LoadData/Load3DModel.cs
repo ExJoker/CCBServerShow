@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Load3DModel : Singleton<Load3DModel> {
 
@@ -14,18 +15,27 @@ public class Load3DModel : Singleton<Load3DModel> {
         StartCoroutine(LoadModelToScene(ImageId));
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(LoadModelToScene("10014"));
 
-	IEnumerator LoadModelToScene(string ImageId)
+        }
+    }
+
+    IEnumerator LoadModelToScene(string ImageId)
 	{		
 		yield return null;
 		CueContorller.Instance.ResetCuePool();//重置对象池
 		//读取图片并显示
 		ObjectManager.Instance.SphereLoding.SetActive(true);
-		string sql= "SELECT biuldingName FROM biulding WHERE region_Id = "+ ImageId+";";
+        string sql = "SELECT biuldingName FROM biulding WHERE region_Id = "+ ImageId+";";
 		List<string[]> result =new List<string[]>();
 		result=DataDBContorller.Select(sql);
         string name = result[0][0];
         GameObject g = Instantiate(Resources.Load(name) as GameObject, Vector3.zero, Quaternion.identity);
+        g.transform.localScale = Vector3.one * 0.8f;
         loadedModels.Add(g);
         yield return new WaitForSeconds(0.5f);
         #region 加载图片
@@ -88,11 +98,13 @@ public class Load3DModel : Singleton<Load3DModel> {
         //}
         #endregion
         //显示房间内UI
-        ObjectManager.Instance.MainCanvas.SetActive(false);
         ObjectManager.Instance.SphereLoding.SetActive(false);
         ObjectManager.Instance.RoomSphere.SetActive(false);
-		//IsAtHouse =true;//将当前状态设置为在房内
-	}
+         ObjectManager.Instance.MainCanvas.SetActive(false);
+        //ObjectManager.Instance.outputCanvas.SetActive(true);
+        //ObjectManager.Instance.outputCanvas.transform.GetChild(0).DOLocalJump(Vector3.zero, 5.0f, 10, 1.0f).OnComplete(delegate () { ObjectManager.Instance.MainCanvas.SetActive(false); });
+        //IsAtHouse =true;//将当前状态设置为在房内
+    }
 
     public void ResetAllModel()
     {

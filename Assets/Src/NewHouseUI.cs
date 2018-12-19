@@ -29,11 +29,12 @@ public class NewHouseUI : MonoBehaviour {
     public float y = 0.0f;
     public float z = 0.0f;
     //相机的位置
-    public float px = 0.0f;
-    public float py = 0.0f;
-    public float pz = -1.0f;
+    public float px = 0.7f;
+    public float py = 0.7f;
+    public float pz = 0.7f;
 
     public float ry = 0.0f;
+    public float rx = 0.0f;
     //限制旋转角度，物体绕x轴旋转限制，不能上下颠倒。
     float yMinLimit = -40;
     float yMaxLimit = 40;
@@ -103,7 +104,10 @@ public class NewHouseUI : MonoBehaviour {
                 }
                 else if (showMessage[0] == "rxy")
                 {
-                    ry = float.Parse(showMessage[2]);
+                   // rx = float.Parse(showMessage[1]);
+                    ry = float.Parse(showMessage[1]);
+                    isAtModel = true;
+
                 }
                 else if (showMessage[0] == "pxy")
                 {
@@ -129,12 +133,16 @@ public class NewHouseUI : MonoBehaviour {
         // y = Mathf.Clamp(y, yMinLimit, yMaxLimit);
         if (isAtHouse)
         {
-            CanvasMain.transform.rotation = Quaternion.Euler(y, -x, z);
+            CanvasMain.transform.rotation = Quaternion.Euler(y, x, z);
+
         }
-        if (isAtModel)
-        {
-            CanvasMain.transform.position = new Vector3(px, py, pz);
-        }
+        //if (isAtModel)
+        //{
+        //    CanvasMain.transform.rotation = Quaternion.Euler(rx, ry, z);
+        //    CanvasMain.transform.position = new Vector3(px, py, pz);
+        //    Debug.Log("Pos : " + CanvasMain.transform.position + "Rot :" + CanvasMain.transform.eulerAngles);
+
+        //}
     }
 
     //进房间

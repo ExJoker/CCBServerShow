@@ -48,6 +48,7 @@ public class UdpRespons : MonoBehaviour {
         ObjectManager.Instance.PlaneImageCanvas.SetActive(false);
         Load3DModel.Instance.ResetAllModel();
         ObjectManager.Instance.RoomSphere.SetActive(true);
+        ObjectManager.Instance.outputCanvas.SetActive(false);
         //房间球还原
         ObjectManager.Instance.RoomSphere.transform.position = new Vector3(0, 0, -1);
         ObjectManager.Instance.RoomSphere.transform.rotation = Quaternion.Euler(-91.8f, 0, 0);
@@ -57,17 +58,17 @@ public class UdpRespons : MonoBehaviour {
         NewHouseUI.Instance.x = 0;
         NewHouseUI.Instance.y = 0;
         NewHouseUI.Instance.z = 0;
-        NewHouseUI.Instance.px = 0;
-        NewHouseUI.Instance.py = 0;
-        NewHouseUI.Instance.pz = -1.0f;
+        NewHouseUI.Instance.px = 0.7f;
+        NewHouseUI.Instance.py = 0.7f;
+        NewHouseUI.Instance.pz = 0.7f;
         NewHouseUI.Instance.isAtHouse = false;
         NewHouseUI.Instance.isAtModel = false;
         ObjectManager.Instance.RoomCanvas_HouseMessage.SetActive(false);
-        foreach (var item in AreaManager.Instance.areas)
-        {
-            //item.GetComponent<Image>().enabled = false;
-            //item.transform.Find("Light").gameObject.SetActive(false);
-        } 
+        //foreach (var item in AreaManager.Instance.areas)
+        //{
+        //    //item.GetComponent<Image>().enabled = false;
+        //    //item.transform.Find("Light").gameObject.SetActive(false);
+        //} 
     }
     
 

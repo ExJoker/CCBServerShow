@@ -81,7 +81,6 @@ public class GameManager : MonoBehaviour
     public void handleReceiveMessage(string msg)
     {
         ShowingName = msg;
-        Debug.Log("==" + msg)
 ;    }
     /// <summary>
     /// 开启UI的显示

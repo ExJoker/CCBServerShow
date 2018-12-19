@@ -14,7 +14,7 @@ public class ObjectManager : MonoBehaviour {
 	public GameObject PlaneImageBody;//平面图容器
 	public GameObject PlaneImageCanvas;//平面图画布
 	[SerializeField,Header("区域显示控制")]
-	public GameObject ScrollBody;
+	public GameObject outputCanvas;
 	public GameObject Scrollbar;
 	[SerializeField,Header("房源信息控制")]
 	public GameObject HousePlan;
