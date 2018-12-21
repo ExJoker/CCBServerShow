@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class LoadSphere : MonoBehaviour {
 
@@ -65,8 +66,17 @@ public class LoadSphere : MonoBehaviour {
 			TempCue.SetActive(true);
 		}
 		ObjectManager.Instance.SphereLoding.SetActive(false);//显示加载面板
-		ObjectManager.Instance.MainCanvas.SetActive(false);//隐藏主页UI界面
-		Resources.UnloadUnusedAssets();
+        //ObjectManager.Instance.MainCanvas.SetActive(false);//隐藏主页UI界面
+        ObjectManager.Instance.outputCanvas.SetActive(true);
+        ObjectManager.Instance.outputCanvas.transform.GetChild(0).GetComponent<RawImage>().DOFade(1, 1.0f).
+            OnComplete(delegate () {
+                 //ObjectManager.Instance.outputCanvas.transform.GetChild(0).GetChild(0).DOLocalMove(Vector3.zero,1.0f).
+                 //SetEase<Tween>(Ease.OutElastic);
+                 ObjectManager.Instance.ShowFrame.GetComponent<RawImage>().DOFade(1, 0.50f);
+                ObjectManager.Instance.MainCanvas.SetActive(false);
+            });
+
+        Resources.UnloadUnusedAssets();
 
         if (!IsAtHouse)
         {

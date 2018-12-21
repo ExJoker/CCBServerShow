@@ -40,6 +40,14 @@ public class UdpRespons : MonoBehaviour {
         }
 	}
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ReturnMainCanvas();
+        }
+    }
+
     public void ReturnMainCanvas()
     {
         StopAllCoroutines();

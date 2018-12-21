@@ -24,7 +24,7 @@ public class ObjectManager : MonoBehaviour {
 	public GameObject ThumbnailLoading;
 	[SerializeField,Header("房间内UI控制")]
 	public GameObject RoomCanvasLoading;
-	public GameObject RoomCanvas;
+	public GameObject ShowFrame;
 	public GameObject RoomCanvas_ScrollBody;
 	public GameObject RoomCanvas_HidenImageItemBtn;
 	public GameObject RoomCanvas_HouseMessage;

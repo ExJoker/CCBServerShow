@@ -22,6 +22,11 @@ public class Load3DModel : Singleton<Load3DModel> {
             StartCoroutine(LoadModelToScene("10014"));
 
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            LoadSphere.Instance.LoadSphereTextureById("10359");
+        }
     }
 
     IEnumerator LoadModelToScene(string ImageId)
@@ -100,9 +105,20 @@ public class Load3DModel : Singleton<Load3DModel> {
         //显示房间内UI
         ObjectManager.Instance.SphereLoding.SetActive(false);
         ObjectManager.Instance.RoomSphere.SetActive(false);
-         ObjectManager.Instance.MainCanvas.SetActive(false);
-        //ObjectManager.Instance.outputCanvas.SetActive(true);
-        //ObjectManager.Instance.outputCanvas.transform.GetChild(0).DOLocalJump(Vector3.zero, 5.0f, 10, 1.0f).OnComplete(delegate () { ObjectManager.Instance.MainCanvas.SetActive(false); });
+        ObjectManager.Instance.MainCanvas.SetActive(false);
+        //  ObjectManager.Instance.MainCanvas.SetActive(false);
+        // ObjectManager.Instance.outputCanvas.SetActive(true);
+        // ObjectManager.Instance.outputCanvas.transform.GetChild(0).DOLocalJump(Vector3.zero, 5.0f, 10, 1.0f).
+        //OnComplete(delegate () { ObjectManager.Instance.MainCanvas.SetActive(false); });
+
+        //ObjectManager.Instance.outputCanvas.transform.GetChild(0).GetComponent<RawImage>().DOFade(1,1.0f).
+        //     OnComplete(delegate () {
+        //         //ObjectManager.Instance.outputCanvas.transform.GetChild(0).GetChild(0).DOLocalMove(Vector3.zero,1.0f).
+        //         //SetEase<Tween>(Ease.OutElastic);
+        //         ObjectManager.Instance.ShowFrame.GetComponent<RawImage>().DOFade(1, 1.0f);
+        //         ObjectManager.Instance.MainCanvas.SetActive(false);
+        //     });
+
         //IsAtHouse =true;//将当前状态设置为在房内
     }
 
