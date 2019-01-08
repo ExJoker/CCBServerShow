@@ -97,12 +97,8 @@ public class LoadSphere : MonoBehaviour {
 		{//没有旋转数据就把球还原
 			Vector3 temp=new Vector3(0,0,0);
 			ObjectManager.Instance.RoomSphere.transform.eulerAngles=temp;
-		}
-
-		
-
+		}		
 		IsAtHouse =true;//将当前状态设置为在房内
-
 	}
 	
 }
